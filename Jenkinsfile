@@ -7,7 +7,7 @@ pipeline {
 environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
     
-}
+    }
    stages {
         stage("build"){
             steps {
@@ -20,7 +20,7 @@ environment {
             steps{
                 echo "----------- unit test started ----------"
                 sh 'mvn surefire-report:report'
-                 echo "----------- unit test Complted ----------"
+                echo "----------- unit test Complted ----------"
             }
         }
         stage("Jar Publish") {
@@ -44,8 +44,8 @@ environment {
                     buildInfo.env.collect()
                     server.publishBuildInfo(buildInfo)
                     echo '<--------------- Jar Publish Ended --------------->'  
-             }
-        }   
+                }
+            }   
+        }
     }
-}
 }
